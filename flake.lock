@@ -1,0 +1,27 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1690420038,
+        "narHash": "sha256-FP7m//ShV9F4HU30N7IQmhku52xT0XLa2RDze+WSm9g=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "05f42aef4e9502a0d0ad79c9debd11d98565cfa7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-23.05-darwin",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
