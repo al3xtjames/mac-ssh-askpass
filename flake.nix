@@ -1,5 +1,5 @@
 {
-  inputs = { nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin"; };
+  inputs = { nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin"; };
 
   outputs = { self, nixpkgs, }:
     let systems = [ "aarch64-darwin" "x86_64-darwin" ];
@@ -11,6 +11,7 @@
           mac-ssh-askpass = pkgs.swiftPackages.callPackage ./default.nix {
             inherit (pkgs.darwin.apple_sdk_11_0.frameworks) AppKit Foundation;
           };
-        });
+        }
+      );
     };
 }
