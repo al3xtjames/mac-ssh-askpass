@@ -1,0 +1,13 @@
+diff --git a/readpass.c b/readpass.c
+index b52f3d6b1..ed9754d11 100644
+--- a/readpass.c
++++ b/readpass.c
+@@ -263,7 +263,7 @@ notify_start(int force_askpass, const char *fmt, ...)
+ 	}
+ 	if (getenv("DISPLAY") == NULL &&
+ 	    ((s = getenv(SSH_ASKPASS_REQUIRE_ENV)) == NULL ||
+-	    strcmp(s, "force") != 0)) {
++	    (strcmp(s, "force") != 0 && strcmp(s, "notify-force") != 0))) {
+ 		debug3_f("cannot notify: no display");
+ 		goto out;
+ 	}
