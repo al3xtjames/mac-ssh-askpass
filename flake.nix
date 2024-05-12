@@ -9,7 +9,7 @@
         in rec {
           default = mac-ssh-askpass;
           mac-ssh-askpass = pkgs.swiftPackages.callPackage ./default.nix {
-            inherit (pkgs.darwin.apple_sdk_11_0.frameworks) AppKit Foundation;
+            inherit (pkgs.swiftPackages.apple_sdk.frameworks) AppKit Foundation;
           };
         }
       );
