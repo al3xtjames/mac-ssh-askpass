@@ -26,9 +26,9 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "(Incomplete) ssh-askpass(1) implementation for macOS";
-    homepage = "https://github.com/xtaci/kcptun";
+    homepage = "https://github.com/al3xtjames/mac-ssh-askpass";
     license = licenses.bsd0;
-    maintainers = with maintainers; [ ];
+    maintainers = with maintainers; [ al3xtjames ];
     platforms = platforms.darwin;
   };
 }
