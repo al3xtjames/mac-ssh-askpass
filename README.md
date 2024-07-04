@@ -40,7 +40,7 @@ Note that `ssh` uses `ssh-askpass(1)` to confirm host key fingerprints. As
 `Host key verification failed.`.
 
 As a workaround, this repo includes [a patch for openssh-portable][5] (currently
-for 9.5p1) to support `SSH_ASKPASS_REQUIRE=notify-force`. When this environment
+for 9.8p1) to support `SSH_ASKPASS_REQUIRE=notify-force`. When this environment
 variable is set, `ssh-askpass(1)` will only be used for U2F notifications. Other
 prompts (including those for host key verification) will use the terminal.
 

@@ -1,8 +1,8 @@
 diff --git a/readpass.c b/readpass.c
-index b52f3d6b1..79da7cf8d 100644
+index d42b1185d..d0ff2c0b0 100644
 --- a/readpass.c
 +++ b/readpass.c
-@@ -249,6 +249,11 @@ notify_start(int force_askpass, const char *fmt, ...)
+@@ -250,6 +250,11 @@ notify_start(int force_askpass, const char *fmt, ...)
  	xvasprintf(&prompt, fmt, args);
  	va_end(args);
  
@@ -14,14 +14,13 @@ index b52f3d6b1..79da7cf8d 100644
  	if (fflush(NULL) != 0)
  		error_f("fflush: %s", strerror(errno));
  	if (!force_askpass && isatty(STDERR_FILENO)) {
-@@ -261,9 +266,7 @@ notify_start(int force_askpass, const char *fmt, ...)
- 		debug3_f("cannot notify: no askpass");
+@@ -263,8 +268,7 @@ notify_start(int force_askpass, const char *fmt, ...)
  		goto out;
  	}
--	if (getenv("DISPLAY") == NULL &&
+ 	if (getenv("DISPLAY") == NULL && getenv("WAYLAND_DISPLAY") == NULL &&
 -	    ((s = getenv(SSH_ASKPASS_REQUIRE_ENV)) == NULL ||
 -	    strcmp(s, "force") != 0)) {
-+	if (getenv("DISPLAY") == NULL && !force_askpass) {
++	    !force_askpass) {
  		debug3_f("cannot notify: no display");
  		goto out;
  	}
