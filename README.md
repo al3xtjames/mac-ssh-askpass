@@ -39,13 +39,16 @@ Note that `ssh` uses `ssh-askpass(1)` to confirm host key fingerprints. As
 `mac-ssh-askpass` doesn't support this, host key verification will fail with
 `Host key verification failed.`.
 
-As a workaround, this repo includes [a patch for openssh-portable][5] (currently
-for 9.8p1) to support `SSH_ASKPASS_REQUIRE=notify-force`. When this environment
-variable is set, `ssh-askpass(1)` will only be used for U2F notifications. Other
-prompts (including those for host key verification) will use the terminal.
+[A WIP patch by OpenSSH developer @djmdjm][5] extends the `SSH_ASKPASS_REQUIRE`
+variable to allow the use of `ssh-askpass(1)` to be restricted. By setting
+`SSH_ASKPASS_REQUIRE` to `notify:force`, `mac-ssh-askpass` can be used for U2F
+touch notifications, while other readpass prompts will use the terminal.
+
+A rebased version of this patch series for OpenSSH 9.8p1 [is available here][6].
 
 [1]: https://lists.mindrot.org/pipermail/openssh-unix-dev/2019-November/038032.html
 [2]: https://www.swift.org/package-manager/
 [3]: https://man.openbsd.org/ssh-add.1#DISPLAY
 [4]: https://developer.apple.com/forums/thread/698683
-[5]: ssh-askpass-require-notify-force.patch
+[5]: https://github.com/djmdjm/openssh-wip/pull/21
+[6]: https://gist.github.com/al3xtjames/5ae94de6463c7bf147406e0b3b429f79
