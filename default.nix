@@ -2,18 +2,20 @@
 , stdenv
 , swift
 , swiftpm
-, AppKit
-, Foundation
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "mac-ssh-askpass";
   version = "0.1.0";
 
   src = ./.;
 
-  nativeBuildInputs = [ swift swiftpm ];
-  buildInputs = [ AppKit Foundation ];
+  strictDeps = true;
+
+  nativeBuildInputs = [
+    swift
+    swiftpm
+  ];
 
   installPhase = ''
     runHook preInstall
