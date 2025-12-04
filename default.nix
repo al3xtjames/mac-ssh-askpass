@@ -1,11 +1,12 @@
 {
   lib,
-  stdenv,
   swift,
   swiftpm,
+  swiftPackages,
+  ...
 }:
 
-stdenv.mkDerivation {
+swiftPackages.stdenv.mkDerivation {
   pname = "mac-ssh-askpass";
   version = "0.1.0";
 
@@ -32,6 +33,7 @@ stdenv.mkDerivation {
     homepage = "https://github.com/al3xtjames/mac-ssh-askpass";
     license = licenses.bsd0;
     maintainers = with maintainers; [ al3xtjames ];
+    mainProgram = "mac-ssh-askpass";
     platforms = platforms.darwin;
   };
 }
