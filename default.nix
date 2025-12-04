@@ -1,7 +1,8 @@
-{ lib
-, stdenv
-, swift
-, swiftpm
+{
+  lib,
+  stdenv,
+  swift,
+  swiftpm,
 }:
 
 stdenv.mkDerivation {
